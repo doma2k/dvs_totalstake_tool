@@ -1,6 +1,6 @@
 // List of coingecko links.
 const assetMantle = `https://api.coingecko.com/api/v3/coins/assetmantle/market_chart?vs_currency=usd&days=max`;
-// const cosmos = `https://api.coingecko.com/api/v3/coins/cosmos/market_chart?vs_currency=usd&days=max`;
+const cosmos = `https://api.coingecko.com/api/v3/coins/cosmos/market_chart?vs_currency=usd&days=max`;
 // const akash = 'https://api.coingecko.com/api/v3/coins/akash-network/market_chart?vs_currency=usd&days=max';
 const osmosis = 'https://api.coingecko.com/api/v3/coins/osmosis/market_chart?vs_currency=usd&days=max';
 // const axelar = 'https://api.coingecko.com/api/v3/coins/axelar/market_chart?vs_currency=usd&days=max';
@@ -11,7 +11,7 @@ const persistence = 'https://api.coingecko.com/api/v3/coins/persistence/market_c
 
 // const urls = [assetMantle, cosmos, akash, osmosis, axelar, band, bitcanna, juno];
 // const names = ['MNTL', 'ATOM', 'AKT', 'OSMO', 'AXLR', 'BAND', 'BCNA', 'JUNO'];
-const names = ['JUNO', 'XPRT', 'MANTLE', 'BCNA'];
-const urls = [juno, persistence, assetMantle, bitcanna];
+const names = ['JUNO', 'XPRT', 'MANTLE', 'BCNA', 'ATOM', 'OSMO'];
+const urls = [juno, persistence, assetMantle, bitcanna, cosmos, osmosis];
 
 module.exports = { urls, names };
