@@ -7,8 +7,6 @@ const apiArray = require('./data/networkapi.js').api;
 getCurrentPrices(urls);
 getValidatorsList(apiArray);
 
-let tokenPrice = [];
-
 // Get validators data.
 function getValidatorsList(apiArray) {
     for (let i = 0; i < apiArray.length; i++) {
@@ -37,9 +35,9 @@ function getValidatorsList(apiArray) {
 }
 
 
+let tokenPrice = [];
 // Getting prices from gitcoin.
-async function getCurrentPrices(urls)
-    {
+async function getCurrentPrices(urls) {
     const coins = Object.keys(urls);
     for (let i = 0; i < urls.length; i++) {
         https.get(urls[i], (res) => {
@@ -53,12 +51,15 @@ async function getCurrentPrices(urls)
                 let tokenName = names[i];
                 //get the last element of the prices array.
                 const currentPrice = response.prices[response.prices.length - 1][1];
-                tokenPrice = currentPrice;
+                tokenPrice.push(currentPrice);
                 console.log(`${tokenName}: $${currentPrice.toFixed(2)}`);
             });
         });
     }
 }
+
+
+
 
 
 
