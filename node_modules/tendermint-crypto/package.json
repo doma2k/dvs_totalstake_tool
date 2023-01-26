@@ -1,0 +1,24 @@
+{
+  "name": "tendermint-crypto",
+  "version": "0.0.1",
+  "description": "Cryptographic functions for Tendermint in Javascript",
+  "main": "src/index.js",
+  "scripts": {
+    "fmt": "jsfmt -w src/"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "create-hash": "^1.1.0",
+    "js-nacl": "^0.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tendermint/tendermint-crypto-js.git"
+  },
+  "author": "jae@tendermint.com",
+  "license": "Kopimist",
+  "bugs": {
+    "url": "https://github.com/tendermint/tendermint-crypto-js/issues"
+  },
+  "homepage": "https://github.com/tendermint/tendermint-crypto-js"
+}
