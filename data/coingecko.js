@@ -12,5 +12,4 @@ const urls = [juno];
 // const urls = [assetMantle, cosmos, akash, osmosis, axelar, band, bitcanna, juno];
 // const names = ['MNTL', 'ATOM', 'AKT', 'OSMO', 'AXLR', 'BAND', 'BCNA', 'JUNO'];
 const names = ['JUNO'];
-const monikers = ["POSTHUMAN∞DVS", "web34ever", "cyberG",];
-module.exports = { urls, names};
+module.exports = { urls, names };

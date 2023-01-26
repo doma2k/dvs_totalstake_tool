@@ -1,12 +1,12 @@
 const https = require('https');
-const urls = require('./coingecko.js').urls;
-const names = require('./coingecko.js').names;
-const dvs = require('./coingecko.js').monikers;
-const apiArray = require('./networkapi.js').api;
+const urls = require('./data/coingecko.js').urls;
+const names = require('./data/coingecko.js').names;
+const dvs = require('./data/coingecko.js').monikers;
+const apiArray = require('./data/networkapi.js').api;
 
 
 getValidatorsList(apiArray);
-getCurrentPrices(urls);
+// getCurrentPrices(urls);
 
 
 function getValidatorsList(apiArray) {
