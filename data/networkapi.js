@@ -1,9 +1,11 @@
 // Network cosmos network api's.
 const juno = 'https://juno-api.polkachu.com/staking/validators';
-const api = [juno];
+const persistence = 'https://persistence-api.polkachu.com/staking/validators';
+const api = [juno, persistence];
 
 // DVS monikers.
-const monikers = ["POSTHUMAN∞DVS", "web34ever", "cyberG",];
+const monikers = ["POSTHUMAN∞DVS", "web34ever", "cyberG", "Imperator.co", "vbloher", "stakr-space", "Doma🏠Nodes", "👋 79anvi 🍀", "Colinka", "Paranormal Brothers"];
 
 // Module export
 module.exports = { api, monikers };
+
