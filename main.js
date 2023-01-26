@@ -1,14 +1,13 @@
 const https = require('https');
 const urls = require('./data/coingecko.js').urls;
 const names = require('./data/coingecko.js').names;
-const dvs = require('./data/coingecko.js').monikers;
+const dvs = require('./data/networkapi.js').monikers;
 const apiArray = require('./data/networkapi.js').api;
 
-
+getCurrentPrices(urls);
 getValidatorsList(apiArray);
-// getCurrentPrices(urls);
 
-
+// Get validators data
 function getValidatorsList(apiArray) {
     for (let i = 0; i < apiArray.length; i++) {
         https.get(apiArray[i], (res) => {
@@ -22,7 +21,7 @@ function getValidatorsList(apiArray) {
                 for (let i = 0; i < dvs.length; i++) {
                     const filteredValidators = validators.filter(validator => validator.description.moniker === dvs[i]);
                     filteredValidators.forEach(validator => {
-                        console.log(validator.description.moniker + "Tokens: " + validator.tokens);
+                        console.log(validator.description.moniker + " Total Stake: $" + ((validator.tokens / 1000000).toFixed(0) * junoPrice).toFixed(0));
                     });
                 }
             });
@@ -30,9 +29,8 @@ function getValidatorsList(apiArray) {
     }
 }
 
-
-
 // Getting prices from gitcoin
+let junoPrice;
 function getCurrentPrices(urls) {
     const coins = Object.keys(urls);
     for (let i = 0; i < urls.length; i++) {
@@ -47,7 +45,10 @@ function getCurrentPrices(urls) {
                 let tokenName = names[i];
                 //get the last element of the prices array
                 const currentPrice = response.prices[response.prices.length - 1][1];
-                console.log(`${tokenName}: $${currentPrice}`);
+                if (tokenName === 'JUNO') {
+                    junoPrice = currentPrice;
+                }
+                console.log(`${tokenName}: $${currentPrice.toFixed(2)}`);
             });
         });
     }
