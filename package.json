@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@tendermint/types": "^0.1.2",
+    "axios": "^1.2.5",
     "base64url": "^3.0.1",
     "bech32": "^2.0.0",
     "bs58": "^5.0.0",

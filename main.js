@@ -1,46 +1,15 @@
 const https = require('https');
+const axios = require('axios');
 const urls = require('./data/coingecko.js').urls;
 const names = require('./data/coingecko.js').names;
 const dvs = require('./data/networkapi.js').monikers;
 const apiArray = require('./data/networkapi.js').api;
 
-getCurrentPrices(urls);
-getValidatorsList(apiArray);
 
-// Get validators data.
-function getValidatorsList(apiArray) {
-    for (let i = 0; i < apiArray.length; i++) {
-        https.get(apiArray[i], (res) => {
-            res.setEncoding('utf8');
-            let body = '';
-            res.on('data', (data) => {
-                body += data;
-            });
-            res.on('end', () => {
-                const validators = JSON.parse(body).result;
-                console.log('\n');
-                // Comparing JSON data to list of monikers.
-                console.log(names[i]);
-                for (let i = 0; i < dvs.length; i++) {
-                    const filteredValidators = validators.filter(validator => validator.description.moniker === dvs[i]);
-                    filteredValidators.forEach(validator => {
-                        let x = (validator.tokens / 1000000).toFixed();
-                        // console.log(validator.description.moniker + " : $" + ((validator.tokens / 1000000).toFixed(0) * tokenPrice).toFixed(0));
-                        console.log(validator.description.moniker + " : " + x, "tokens");
-                    });
-                }
-            }); 
-        }); 
-    }
-}
-
-
-let tokenPrice = [];
-// Getting prices from gitcoin.
-async function getCurrentPrices(urls) {
-    const coins = Object.keys(urls);
-    for (let i = 0; i < urls.length; i++) {
-        https.get(urls[i], (res) => {
+let prices = []
+const getCurrentPrice = (url) => {
+    return new Promise((resolve, reject) => {
+        https.get(url, (res) => {
             res.setEncoding('utf8');
             let body = '';
             res.on('data', (data) => {
@@ -48,15 +17,51 @@ async function getCurrentPrices(urls) {
             });
             res.on('end', () => {
                 const response = JSON.parse(body);
-                let tokenName = names[i];
-                //get the last element of the prices array.
                 const currentPrice = response.prices[response.prices.length - 1][1];
-                tokenPrice.push(currentPrice);
-                console.log(`${tokenName}: $${currentPrice.toFixed(2)}`);
+                prices.push(currentPrice);
+                resolve(currentPrice)
             });
         });
-    }
+    });
+};
+
+const getCurrentPrices = async (urls) => {
+    await Promise.all(urls.map(getCurrentPrice));
+};
+getCurrentPrices(urls).then(() => {
+    getValidatorsList(apiArray);
+});
+
+
+// Get validators data.
+async function getValidatorsList(apiArray) {
+    apiArray.forEach(async (api, index) => {
+        setTimeout(async () => {
+            const response = await axios.get(api);
+            const validators = response.data.result;
+            console.log('\n');
+            console.log(names[index]);
+            console.log(prices[index]);
+            for (let i = 0; i < dvs.length; i++) {
+                const filteredValidators = validators.filter(validator => validator.description.moniker === dvs[i]);
+                filteredValidators.forEach(validator => {
+                    let x = (validator.tokens / 1000000).toFixed();
+                    let tokenValue = x * prices[index];
+                    console.log(validator.description.moniker + " : $" + tokenValue.toFixed(0));
+                });
+            }
+        }, 1000 * index);
+    });
 }
+
+
+
+
+
+
+
+
+
 
 
 
