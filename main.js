@@ -4,15 +4,22 @@ const names = require('./data/coingecko.js').names;
 const dvs = require('./data/networkapi.js').monikers;
 const apiArray = require('./data/networkapi.js').api;
 
+let prices = [];
+let totalStake = [];
 
-let prices = []
-
-const getCurrentPrice = async (url) => {
+const getCurrentPrice = async (url, index) => {
     try {
-        const response = await axios.get(url);
-        const currentPrice = response.data.prices[response.data.prices.length - 1][1];
-        prices.push(currentPrice);
-        return currentPrice;
+        await setTimeout(async () => {
+            const response = await axios.get(url);
+            const currentPrice = response.data.prices[response.data.prices.length - 1][1];
+            if (currentPrice === undefined) {
+                console.log("restarting request for url: ", url);
+                getCurrentPrice(url, index);
+            } else {
+                prices.push(currentPrice);
+                return currentPrice;
+            }
+        }, 1000 * index);
     } catch (err) {
         console.error(err);
     }
@@ -23,12 +30,15 @@ const getCurrentPrices = async (urls) => {
 };
 
 getCurrentPrices(urls).then(() => {
-    getValidatorsList(apiArray);
+    getValidatorsList(apiArray, function (total) {
+        // Callback function that gives total stake value for DVS.
+        console.log("Total stake: $" + total.toFixed(0));
+    });
 });
 
 
 // Get validators data.
-async function getValidatorsList(apiArray) {
+const getValidatorsList = async (apiArray, callback) => {
     apiArray.forEach(async (api, index) => {
         setTimeout(async () => {
             const response = await axios.get(api);
@@ -40,33 +50,19 @@ async function getValidatorsList(apiArray) {
                 const filteredValidators = validators.filter(validator => validator.description.moniker === dvs[i]);
                 filteredValidators.forEach(validator => {
                     let x = (validator.tokens / 1000000).toFixed();
-                    let tokenValue = x * prices[index];
-                    console.log(validator.description.moniker + " : $" + tokenValue.toFixed(0));
+                    if (prices[index] === undefined) {
+                        console.log("restarting request for url: ", url);
+                        getCurrentPrice(url, index);
+                    } else {
+                        let tokenValue = x * prices[index];
+                        totalStake.push(tokenValue);
+                        console.log(validator.description.moniker + " : $" + tokenValue.toFixed(0));
+                    }
                 });
             }
+            let total = totalStake.reduce((acc, val) => acc + val);
+            callback(total);
         }, 1000 * index);
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

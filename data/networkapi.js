@@ -8,7 +8,7 @@ const cosmos = 'https://lcd-cosmoshub.blockapsis.com/staking/validators';
 const api = [juno, persistence, assetMantle, bitcanna, cosmos, osmosis];
 
 // DVS monikers.
-const monikers = ["POSTHUMAN∞DVS", "web34ever", "cyberG", "Imperator.co", "vbloher", "stakr-space", "Doma🏠Nodes", "👋 79anvi 🍀", "Colinka", "Paranormal Brothers", "ECO Stake 🌱", "POSTHUMAN ꝏ DVS"];
+const monikers = ["POSTHUMAN∞DVS", "web34ever", "cyberG", "Imperator.co", "vbloher", "stakr-space", "Doma🏠Nodes", "👋 79anvi 🍀", "Colinka", "Paranormal Brothers", "ECO Stake 🌱", "POSTHUMAN ꝏ DVS", "NODEJUMPER"];
 
 // Module export
 module.exports = { api, monikers };
