@@ -1,4 +1,3 @@
-const https = require('https');
 const axios = require('axios');
 const urls = require('./data/coingecko.js').urls;
 const names = require('./data/coingecko.js').names;
@@ -7,27 +6,22 @@ const apiArray = require('./data/networkapi.js').api;
 
 
 let prices = []
-const getCurrentPrice = (url) => {
-    return new Promise((resolve, reject) => {
-        https.get(url, (res) => {
-            res.setEncoding('utf8');
-            let body = '';
-            res.on('data', (data) => {
-                body += data;
-            });
-            res.on('end', () => {
-                const response = JSON.parse(body);
-                const currentPrice = response.prices[response.prices.length - 1][1];
-                prices.push(currentPrice);
-                resolve(currentPrice)
-            });
-        });
-    });
+
+const getCurrentPrice = async (url) => {
+    try {
+        const response = await axios.get(url);
+        const currentPrice = response.data.prices[response.data.prices.length - 1][1];
+        prices.push(currentPrice);
+        return currentPrice;
+    } catch (err) {
+        console.error(err);
+    }
 };
 
 const getCurrentPrices = async (urls) => {
     await Promise.all(urls.map(getCurrentPrice));
 };
+
 getCurrentPrices(urls).then(() => {
     getValidatorsList(apiArray);
 });
