@@ -8,12 +8,13 @@ Getting Started
 Clone the repository:
 
 bash
-Copy code
+```
 git clone https://github.com/YOUR_USERNAME/Coin-Stake-Valuation-Program.git
 Install dependencies:
-
-Copy code
+````
+```
 npm install
+````
 Start the program:
 
 css
