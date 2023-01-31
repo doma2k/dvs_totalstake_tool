@@ -1,6 +1,36 @@
-DVS total stake calculator tool.
+Coin Stake Valuation Program
+This program collects current market prices of selected cryptocurrency and then calculates the total stake value of a selected set of validators for a selected set of cryptocurrencies. The program is designed to work with data from CoinGecko and Network API.
 
-This tool will collect data from API's 
-- Filter and return Moniker + Tokens.
-- Collect price from Coingecko.
-Sum total value of tokens.
+Requirements
+Node.js
+npm packages: axios
+Getting Started
+Clone the repository:
+
+bash
+Copy code
+git clone https://github.com/YOUR_USERNAME/Coin-Stake-Valuation-Program.git
+Install dependencies:
+
+Copy code
+npm install
+Start the program:
+
+css
+Copy code
+node main.js
+Files and Directories
+main.js: The main file that contains the program logic.
+data: A directory that contains data used in the program, such as cryptocurrency names and API URLs.
+Functionality
+The program uses axios to send GET requests to CoinGecko API and Network API to retrieve current market prices of selected cryptocurrencies and validator information respectively. The program then calculates the total stake value of selected validators for each selected cryptocurrency.
+
+Output
+The program outputs the following information for each selected cryptocurrency:
+
+Name of the cryptocurrency
+Current market price
+Information about selected validators, including their moniker and token count
+Total stake value of selected validators for the cryptocurrency
+Conclusion
+This program provides an easy way to keep track of selected validators' stake value in selected cryptocurrencies. The program can be easily extended to include additional cryptocurrencies and validators.
