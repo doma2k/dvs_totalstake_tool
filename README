@@ -11,7 +11,10 @@ A program that collects data from the crypto market and a blockchain network API
 - network-api: A library used to get the stake data from the blockchain network
 
 ## Installation
-1. Clone the repository: ```git clone https://github.com/<username>/Crypto-Stake-Checker.git```
+1. Clone the repository: 
+```
+git clone https://github.com/<username>/Crypto-Stake-Checker.git
+```
 2. Navigate to the project directory: ```cd Crypto-Stake-Checker```
 3. Install the dependencies: ```npm install```
 
