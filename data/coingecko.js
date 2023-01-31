@@ -54,9 +54,9 @@ const xpla = 'https://api.coingecko.com/api/v3/coins/xpla/market_chart?vs_curren
 
 const urls = [juno, persistence, assetMantle, bitcanna, cosmos, osmosis, akash, axelar, band, bitsong,
     comdex, cresent, cudos, desmos, emoney, fetchai, gravitybridge, sifchain, cerberus, chihuahua, injective, iris, kava, kichain, konstellation,
-    kujira, like, lume, rizon, secret, secret, shentu, sommelier, stargaze, stride, teritori, tgrade, umee, sentinel,starname];
+    kujira, like, lume, rizon, secret, shentu, sommelier, stargaze, stride, teritori, tgrade, umee, sentinel,starname];
 
 const names = ["juno", "persistence", "assetMantle", "bitcanna", "cosmos", "osmosis", "akash", "axelar", "band", "bitsong",
     "comdex", "cresent", "cudos", "desmos", "emoney", "fetchai", "gravitybridge", "sifchain", "cerberus", "chihuahua", "injective", "iris", "kava", "kichain", "konstellation",
-    "kujira", "like", "lume", "rizon", "secret", "secret", "shentu", "sommelier", "stargaze", "stride", "teritori", "tgrade", "umee", "sentinel", "starname"];
+    "kujira", "like", "lume", "rizon", "secret", "shentu", "sommelier", "stargaze", "stride", "teritori", "tgrade", "umee", "sentinel", "starname"];
 module.exports = { urls, names };

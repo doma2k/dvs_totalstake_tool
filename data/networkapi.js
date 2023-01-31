@@ -54,7 +54,7 @@ const xpla = '';
 
 const api = [juno,persistence,assetMantle,bitcanna,cosmos,osmosis,akash,axelar,band,bitsong,
 comdex,cresent,cudos,desmos,emoney,fetchai,gravitybridge,sifchain,cerberus,chihuahua,injective,iris,kava,kichain,konstellation,
-kujira,like,lume,rizon,secret,secret,shentu,sommelier,stargaze,stride,teritori,tgrade,umee,sentinel,starname];
+kujira,like,lume,rizon,secret,shentu,sommelier,stargaze,stride,teritori,tgrade,umee,sentinel,starname];
 
 // DVS monikers.
 const monikers = ["POSTHUMAN∞DVS", "web34ever", "cyberG", "Imperator.co", "vbloher", "stakr-space", "Doma🏠Nodes",
