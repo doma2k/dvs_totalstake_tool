@@ -1,36 +1,29 @@
-Coin Stake Valuation Program
-This program collects current market prices of selected cryptocurrency and then calculates the total stake value of a selected set of validators for a selected set of cryptocurrencies. The program is designed to work with data from CoinGecko and Network API.
+# Crypto-Stake-Checker
+A program that collects data from the crypto market and a blockchain network API, to calculate the total stake value for different validators in the network.
 
-Requirements
-Node.js
-npm packages: axios
-Getting Started
-Clone the repository:
+## Prerequisites
+- Node.js installed on your machine
+- A package manager (e.g. npm)
 
-bash
-Copy code
-git clone https://github.com/YOUR_USERNAME/Coin-Stake-Valuation-Program.git
-Install dependencies:
+## Dependencies
+- axios: A library used to make HTTP requests
+- coingecko-api: A library used to get the current market price for different cryptocurrencies
+- network-api: A library used to get the stake data from the blockchain network
 
-Copy code
-npm install
-Start the program:
+## Installation
+1. Clone the repository: `git clone https://github.com/<username>/Crypto-Stake-Checker.git`
+2. Navigate to the project directory: `cd Crypto-Stake-Checker`
+3. Install the dependencies: `npm install`
 
-css
-Copy code
-node main.js
-Files and Directories
-main.js: The main file that contains the program logic.
-data: A directory that contains data used in the program, such as cryptocurrency names and API URLs.
-Functionality
-The program uses axios to send GET requests to CoinGecko API and Network API to retrieve current market prices of selected cryptocurrencies and validator information respectively. The program then calculates the total stake value of selected validators for each selected cryptocurrency.
+## Usage
+1. Open the `main.js` file in your favorite code editor.
+2. Replace the data in the `urls` and `apiArray` arrays with the desired APIs.
+3. Save and run the program: `node main.js`
 
-Output
-The program outputs the following information for each selected cryptocurrency:
-
-Name of the cryptocurrency
-Current market price
-Information about selected validators, including their moniker and token count
-Total stake value of selected validators for the cryptocurrency
-Conclusion
-This program provides an easy way to keep track of selected validators' stake value in selected cryptocurrencies. The program can be easily extended to include additional cryptocurrencies and validators.
+## Contributing
+1. Fork the repository
+2. Create a new branch: `git checkout -b <branch_name>`
+3. Make the desired changes
+4. Commit the changes: `git commit -m "<commit_message>"`
+5. Push the changes: `git push origin <branch_name>`
+6. Create a pull request
