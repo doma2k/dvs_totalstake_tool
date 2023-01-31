@@ -6,9 +6,12 @@
     "bech32": "^2.0.0",
     "bs58": "^5.0.0",
     "bs58check": "^2.1.2",
+    "cli-spinners": "^2.7.0",
     "crypto": "^1.0.1",
     "elliptic": "^6.5.4",
+    "log-update": "^5.0.1",
     "node-fetch": "^3.3.0",
+    "ora": "^6.1.2",
     "secp256k1": "^5.0.0",
     "tendermint": "^2.0.3",
     "tendermint-crypto": "^0.0.1"

@@ -14,11 +14,11 @@ const cerberus = 'https://cerberus-api.polkachu.com/staking/validators';
 const chihuahua = 'https://api.huahua.bh.rocks/staking/validators';
 const comdex = 'https://api.comdex.chaintools.tech/staking/validators';
 const cresent = 'https://mainnet.crescent.network:1317/staking/validators';
-const cryptoorg = '';
+const cryptoorg = 'https://rest.cronos.org/staking/validators';
 const cudos = 'http://mainnet-full-node-01.hosts.cudos.org:1317/staking/validators';
-const desmos = 'https://api.mainnet.desmos.network/staking/validators';
+const desmos = 'https://desmos.nodejumper.io:1317/staking/validators';
 const emoney = 'https://emoney.validator.network/api/staking/validators';
-const evmos = '';
+const evmos = 'https://evmos-api.validatrium.club/staking/validators';
 const fetchai = 'https://fetch-api.ibs.team/staking/validators';
 const gravitybridge = 'https://gravity-api.ibs.team/staking/validators';
 const injective = 'https://injective-lcd.quickapi.com/staking/validators';
@@ -36,7 +36,7 @@ const onomy = '';
 const passage = 'https://passage-api.polkachu.com/staking/validators';
 const provenanse = '';
 const quicksilver = '';
-const regen = '';
+const regen = 'https://regen.stakesystems.io/staking/validators';
 const rizon = 'https://rizon.nodejumper.io:1317/staking/validators';
 const secret = 'https://scrt-lcd.agoranodes.com/staking/validators';
 const sentinel = 'https://lcd-sentinel.whispernode.com/staking/validators';
@@ -58,7 +58,8 @@ kujira,like,lume,rizon,secret,secret,shentu,sommelier,stargaze,stride,teritori,t
 
 // DVS monikers.
 const monikers = ["POSTHUMAN∞DVS", "web34ever", "cyberG", "Imperator.co", "vbloher", "stakr-space", "Doma🏠Nodes",
-    "👋 79anvi 🍀", "Colinka", "Paranormal Brothers", "ECO Stake 🌱", "POSTHUMAN ꝏ DVS", "NODEJUMPER", "Godshunter", "Paranormal Bros.", "DVS"];
+    "👋 79anvi 🍀", "Colinka", "Paranormal Brothers", "ECO Stake 🌱", "POSTHUMAN ꝏ DVS", "NODEJUMPER", "Godshunter", "Paranormal Bros.", "DVS", "🎓 Quantum_AI 📡🌌",
+    "bonded.zone ⚡", "OpenTech Staking ∞ DVS", "POSTCAPITALIST🎩"];
 
 // Module export
 module.exports = { api, monikers };

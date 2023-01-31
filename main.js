@@ -11,7 +11,7 @@ const getCurrentPrice = async (url) => {
     try {
         const response = await axios.get(url);
         const currentPrice = response.data.prices[response.data.prices.length - 1][1];
-        prices.push(currentPrice.toFixed(8));
+        prices.push(currentPrice.toFixed(9));
 
     } catch (error) {
         console.error(`An error occurred while fetching the data from ${url}: ${error}`);
@@ -32,10 +32,7 @@ price(urls).then(() => {
         console.log("Total stake: $" + total.toLocaleString());
     });
 })
-    .then(() => {
-        console.log("Networks calculated: ", names);
-    });
-
+    
 
 // Get validators data.
 const getValidatorsList = async (apiArray, callback) => {
