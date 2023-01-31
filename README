@@ -27,3 +27,4 @@ A program that collects data from the crypto market and a blockchain network API
 4. Commit the changes: `git commit -m "<commit_message>"`
 5. Push the changes: `git push origin <branch_name>`
 6. Create a pull request
+
